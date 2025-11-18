@@ -1,0 +1,15 @@
+torch==2.1.2
+torchvision==0.16.2
+torchaudio==2.1.2
+numpy==1.24.1
+opencv-python==4.6.0.66
+webdataset==0.2.86
+scipy
+pandas
+Pillow
+ftfy
+regex
+tqdm
+prettytable
+braceexpand
+
