@@ -4,10 +4,10 @@
     <a href="">
         <img alt="Hugging Face Dataset" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-blue">
     </a>
-    <a href="">
+    <a href="https://huggingface.co/datasets/ZhenShiL/MGRS-200k">
         <img alt="Hugging Face Model" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow">
     </a>
-    <a href="">
+    <a href="https://huggingface.co/ZhenShiL/FarSLIP">
         <img alt="arXiv" src="https://img.shields.io/badge/arXiv-25xx.xxxxx-b31b1b">
     </a>
 </p>
@@ -82,12 +82,23 @@ FarSLIP is trained in two stages.
 + In the first stage, we use the [RS5M](https://github.com/om-ai-lab/RS5M) dataset. A quick portal to the RS5M dataset: [link](https://huggingface.co/datasets/omlab/RS5M).
 + In the second stage, we use the proposed MGRS-200k dataset, which is available on [Huggingface](https://huggingface.co/datasets/ZhenShiL/MGRS-200k).
 
-<figure>
-<div align="center">
-<img src=assets/dataset.png width="80%">
-</div>
-<figcaption align="center"><em>Examples from MGRS-200k</em></figcaption>
-</figure>
+[//]: # (<figure>)
+
+[//]: # (<div align="center">)
+
+[//]: # (<img src=assets/dataset.png width="80%">)
+
+[//]: # (</div>)
+
+[//]: # (<figcaption align="center"><em>Examples from MGRS-200k</em></figcaption>)
+
+[//]: # (</figure>)
+
+<p align="center">
+  <img src="assets/dataset.png" width="100%">
+  <br>
+  <em>Examples from MGRS-200k</em>
+</p>
 
 ## Training
 
@@ -105,16 +116,17 @@ FarSLIP is trained in two stages.
 
 ## Testing
 ### Open-vocabulary semantic segmentation
-+ Please checkout [FarSLIP-OVSS](https://github.com/NJU-LHRS/FarSLIP-OVSS) for evaluation of open-vocabulary semantic segmentation.
++ Please checkout [FarSLIP-OVSS](https://github.com/NJU-LHRS/FarSLIP-OVSS) for evaluation of open-vocabulary semantic segmentation in RS images.
 
-<div align="center">
-<img src=assets/ovss.png width="100%">
-</div>
-<figcaption align="center">
-<em>OVSS accuracies across RS benchmarks (mIoU, %). G denotes general-domain models, and RS refers to RS-specific models.
-f. indicates models specifically designed with fine-grained optimization. All models use an input image size of 224, except TIPS (448)</em>
-</figcaption>
-</figure>
+<p align="center">
+  <img src="assets/ovss.png" width="100%">
+  <br>
+  <em>
+    OVSS accuracies across RS benchmarks (mIoU, %). G denotes general-domain models, and RS refers to RS-specific models.
+    f. indicates models specifically designed with fine-grained optimization. All models use an input image size of 224, except TIPS (448)
+  </em>
+</p>
+
 
 
 ### Zero-shot scene classification
