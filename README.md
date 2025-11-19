@@ -53,14 +53,14 @@ We also construct MGRS-200k, the first multi-granularity image-text dataset for 
     cd FarSLIP
     ~~~
 
-2. Create a new virtual environment
+2. Create a new virtual environment.
 
     ~~~shell
     conda create -n farslip python=3.10
     conda activate farslip
     ~~~
 
-3. Install dependences
+3. Install dependences.
 
     ~~~shell
     pip install -r requirements.txt
@@ -103,7 +103,7 @@ FarSLIP is trained in two stages.
 ## Training
 
 + Validation data preparation
-    + Replace --root-val-img-dir and --val-data in [config.py](./open_clip_train/config.py) with the paths to your SkyScript validation dataset.
+    + Replace --root-val-img-dir and --val-data in [config.py](./open_clip_train/config.py) with the paths to your [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download) validation dataset ('SkyScript_val_5K_filtered_by_CLIP_openai').
 + Stage1
     ~~~shell
     torchrun --nproc_per_node=4 -m open_clip_train.main \
