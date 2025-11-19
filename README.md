@@ -158,7 +158,7 @@ FarSLIP is trained in two stages.
 
 
 ### Zero-shot scene classification
-+ Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file) for scene classification dataset preparation, including 'SkyScript', 'aid', 'eurosat', 'fmow', 'millionaid', 'patternnet', 'rsicb', 'nwpu'.
++ Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download-benchmark-datasets) for scene classification dataset preparation, including 'SkyScript', 'aid', 'eurosat', 'fmow', 'millionaid', 'patternnet', 'rsicb', 'nwpu'.
 + Replace the BENCHMARK_DATASET_ROOT_DIR in [test_scene_classification.py](./tests/test_scene_classification.py) to your own path.
 
 + Run testing (e.g. FarSLIP-s1 with ViT-B-32):
@@ -178,7 +178,7 @@ python -m tests.test_scene_classification --model-arch ViT-B-32 --model-name Far
 
 
 ### Zero-shot image-text retrieval
-+ Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file) for image-text retrieval dataset preparation, including 'RSICD', 'RSITMD', 'ucmcaptions', 'SkyScript'.
++ Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download-benchmark-datasets) for image-text retrieval dataset preparation, including 'RSICD', 'RSITMD', 'ucmcaptions', 'SkyScript'.
 + Replace the data_csv_path_dict, SkyScript_dir, Retrieval_dir in [test_retrieval.py](./tests/test_retrieval.py) to your own path.
 
 + Run testing (e.g. FarSLIP-s1 with ViT-B-32):
