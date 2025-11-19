@@ -12,4 +12,5 @@ regex
 tqdm
 prettytable
 braceexpand
+wandb
 

@@ -5,7 +5,6 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import random
-import wandb
 from collections import defaultdict
 import argparse
 
@@ -17,14 +16,17 @@ from open_clip_train.precision import get_autocast
 
 
 # Please specify the paths to data frames
-data_csv_path_dict = {
-    'SkyScript': '/home/datasets/rsvlp/pretrain/skyscript/SkyScript_test_30K_filtered_by_CLIP_openai.csv',
-    'RSICD': '/home/datasets/rsvlp/retrieval/RSICD/RSICD_img_txt_pairs_test.csv',
-    'RSITMD': '/home/datasets/rsvlp/retrieval/RSITMD/RSITMD_img_txt_pairs_test.csv',
-    'ucmcaptions': '/home/datasets/rsvlp/retrieval/ucmcaptions/ucmcaptions_img_txt_pairs_test.csv',
+# path to your csv files of text annotations.
+DATA_CSV_PATH_DICT = {
+    'SkyScript': '/path/to/your/skyscript/SkyScript_test_30K_filtered_by_CLIP_openai.csv',
+    'RSICD': '/path/to/your/retrieval/RSICD/RSICD_img_txt_pairs_test.csv',
+    'RSITMD': '/path/to/your/retrieval/RSITMD/RSITMD_img_txt_pairs_test.csv',
+    'ucmcaptions': '/path/to/your/retrieval/ucmcaptions/ucmcaptions_img_txt_pairs_test.csv',
 }
-SkyScript_dir = '/home/datasets/rsvlp/pretrain/skyscript/'
-Retrieval_dir = '/home/datasets/rsvlp/retrieval/'
+# path to your root of images (RSICD, RSITMD, and ucmcaptions share the same root dir.)
+SKYSCRIPT_IMAGE_DIR = '/path/to/your/skyscript/'
+RETRIEVAL_IMAGE_DIR = '/path/to/your/retrieval/'
+
 
 batch_size = 128
 precision = 'amp'
@@ -100,7 +102,7 @@ def random_seed(seed=42, rank=0):
 def run(model_arch_name, pretrained, dataset_name, force_quick_gelu=False, long_clip=False):
     long_clip = 'load_from_scratch' if long_clip else 'disable'
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(device)
+    # print(device)
     random_seed(42, 0)
 
     # Load model
@@ -117,13 +119,13 @@ def run(model_arch_name, pretrained, dataset_name, force_quick_gelu=False, long_
     model.eval()
 
     # Load data
-    data_csv_path = data_csv_path_dict[dataset_name]
+    data_csv_path = DATA_CSV_PATH_DICT[dataset_name]
     if dataset_name == 'SkyScript':
         caption_key = 'title_multi_objects'
-        ROOT_DATA_DIR = SkyScript_dir
+        ROOT_DATA_DIR = SKYSCRIPT_IMAGE_DIR
     else:
         caption_key = 'title'
-        ROOT_DATA_DIR = Retrieval_dir
+        ROOT_DATA_DIR = RETRIEVAL_IMAGE_DIR
 
     df = pd.read_csv(data_csv_path)
     df['filepath'] = df['filepath'].apply(lambda x: join(ROOT_DATA_DIR, x))
@@ -233,14 +235,18 @@ def run_baseline(model_arch_name, model_name, pretrained, force_quick_gelu=False
 
     acc_dict = {}
     for dataset_name in ['RSICD', 'RSITMD', 'ucmcaptions', 'SkyScript']:
-        res = run(
-            model_arch_name=model_arch_name,
-            pretrained=pretrained,
-            dataset_name=dataset_name,
-            force_quick_gelu = force_quick_gelu,
-            long_clip = long_clip
-        )
-        acc_dict[dataset_name] = res
+        try:
+            res = run(
+                model_arch_name=model_arch_name,
+                pretrained=pretrained,
+                dataset_name=dataset_name,
+                force_quick_gelu=force_quick_gelu,
+                long_clip=long_clip
+            )
+            acc_dict[dataset_name] = res
+
+        except Exception as e:
+            print(f"Evaluate Dataset {dataset_name} failed.")
 
     # Save results
     save_dir = f'./results_retrieval/{model_arch_name}/{model_name}'
