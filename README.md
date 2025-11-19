@@ -7,7 +7,7 @@
     <a href="https://huggingface.co/ZhenShiL/FarSLIP">
         <img alt="Hugging Face Model" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow">
     </a>
-    <a href="https://huggingface.co/ZhenShiL/FarSLIP">
+    <a href="">
         <img alt="arXiv" src="https://img.shields.io/badge/arXiv-25xx.xxxxx-b31b1b">
     </a>
 </p>
@@ -115,7 +115,7 @@ FarSLIP is trained in two stages.
     --use-imagecrop-aug \
     --local-method randomcrops \
     --warmup 1000 \
-    --batch-size 10 \
+    --batch-size 40 \
     --lr 1e-6 \
     --wd 1.0 \
     --epochs 1 \
@@ -132,15 +132,13 @@ FarSLIP is trained in two stages.
     --train-data '/your/path/to/mgrs/text_info.json' \
     --train-dataset-type json \
     --method farslip2 \
-    --local-method randomcrops \
     --warmup 250 \
-    --batch-size 10 \
+    --batch-size 40 \
     --lr 4e-9 \
     --wd 1.0 \
     --epochs 10 \
     --model ViT-B-16 \
-    --loss-type global_itc distill local_itc \
-    --distill-align roi2pooled \
+    --loss-type global_itc local_itc \
     --local-itc-align cls
     ~~~
 
