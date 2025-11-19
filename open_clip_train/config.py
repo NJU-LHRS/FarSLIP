@@ -1,4 +1,4 @@
-BENCHMARK_DATASET_ROOT_DIR = '/home/datasets/rsvlp/cls'     # benchmark_dataset_info root of scene classification datasets
+BENCHMARK_DATASET_ROOT_DIR = '/path/to/classification/benchmarks'     # benchmark_dataset_info root of scene classification datasets
 
 arg_dict = {
 
@@ -17,8 +17,8 @@ arg_dict = {
     # "--use-imagecrop-aug": None,
     # '--local-method': 'randomcrops',
 
-    '--root-val-img-dir': '/home/datasets/rsvlp/pretrain/skyscript/',
-    '--val-data': '/home/datasets/rsvlp/pretrain/skyscript/SkyScript_val_5K_filtered_by_CLIP_openai.csv',
+    '--root-val-img-dir': '.../skyscript/',
+    '--val-data': '.../skyscript/SkyScript_val_5K_filtered_by_CLIP_openai.csv',
     '--val-dataset-type': 'csv',
     '--csv-img-key': 'filepath',
     '--csv-class-key': 'label',

@@ -158,7 +158,7 @@ FarSLIP is trained in two stages.
 
 
 ### Zero-shot scene classification
-+ Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download-benchmark-datasets) for scene classification dataset preparation, including 'SkyScript', 'aid', 'eurosat', 'fmow', 'millionaid', 'patternnet', 'rsicb', 'nwpu'.
++ Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download-benchmark-datasets) for scene classification dataset preparation, including 'SkyScript_cls', 'aid', 'eurosat', 'fmow', 'millionaid', 'patternnet', 'rsicb', 'nwpu'.
 + Replace the BENCHMARK_DATASET_ROOT_DIR in [tests/test_scene_classification.py](./tests/test_scene_classification.py) to your own path.
 
 + Run testing (e.g. FarSLIP-s1 with ViT-B-32):
