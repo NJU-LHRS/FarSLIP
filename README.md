@@ -1,10 +1,10 @@
 <h1 align="center"> FarSLIP: Discovering Effective CLIP Adaptation for Fine-Grained Remote Sensing Understanding </h1> 
 
 <p align="center">
-    <a href="">
+    <a href="https://huggingface.co/datasets/ZhenShiL/MGRS-200k">
         <img alt="Hugging Face Dataset" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-blue">
     </a>
-    <a href="https://huggingface.co/datasets/ZhenShiL/MGRS-200k">
+    <a href="https://huggingface.co/ZhenShiL/FarSLIP">
         <img alt="Hugging Face Model" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow">
     </a>
     <a href="https://huggingface.co/ZhenShiL/FarSLIP">
@@ -19,7 +19,7 @@ We also construct MGRS-200k, the first multi-granularity image-text dataset for 
 
 <figure>
 <div align="center">
-<img src=assets/model.png width="50%">
+<img src=assets/model.png width="60%">
 </div>
 </figure>
 
@@ -106,12 +106,42 @@ FarSLIP is trained in two stages.
     + Replace --root-val-img-dir and --val-data in [config.py](./open_clip_train/config.py) with the paths to your SkyScript validation dataset.
 + Stage1
     ~~~shell
-    torchrun --nproc_per_node=4 -m open_clip_train.main --train-dataset-name RS5M --train-data '/your/path/to/rs5m/{pub11,rs3}-train-{0000..0031}.tar' --train-dataset-type webdataset --train-num-samples 5070186 --method farslip1 --use-imagecrop-aug --local-method randomcrops --warmup 1000 --batch-size 10 --lr 1e-6 --wd 1.0 --epochs 1 --model ViT-B-16 --loss-type global_itc distill --distill-align roi2pooled
+    torchrun --nproc_per_node=4 -m open_clip_train.main \
+    --train-dataset-name RS5M \
+    --train-data '/your/path/to/rs5m/{pub11,rs3}-train-{0000..0031}.tar' \
+    --train-dataset-type webdataset \
+    --train-num-samples 5070186 \
+    --method farslip1 \
+    --use-imagecrop-aug \
+    --local-method randomcrops \
+    --warmup 1000 \
+    --batch-size 10 \
+    --lr 1e-6 \
+    --wd 1.0 \
+    --epochs 1 \
+    --model ViT-B-16 \
+    --loss-type global_itc distill \
+    --distill-align roi2pooled
     ~~~
 
 + Stage2
     ~~~shell
-    torchrun --nproc_per_node=4 -m open_clip_train.main --train-dataset-name MGRS --root-train-img-dir '/your/path/to/mgrs/global_imgs/' --train-data '/your/path/to/mgrs/text_info.json' --train-dataset-type json --method farslip2 --local-method randomcrops --warmup 250 --batch-size 10 --lr 4e-9 --wd 1.0 --epochs 10 --model ViT-B-16 --loss-type global_itc distill local_itc --distill-align roi2pooled --local-itc-align cls
+    torchrun --nproc_per_node=4 -m open_clip_train.main \
+    --train-dataset-name MGRS \
+    --root-train-img-dir '/your/path/to/mgrs/global_imgs/' \
+    --train-data '/your/path/to/mgrs/text_info.json' \
+    --train-dataset-type json \
+    --method farslip2 \
+    --local-method randomcrops \
+    --warmup 250 \
+    --batch-size 10 \
+    --lr 4e-9 \
+    --wd 1.0 \
+    --epochs 10 \
+    --model ViT-B-16 \
+    --loss-type global_itc distill local_itc \
+    --distill-align roi2pooled \
+    --local-itc-align cls
     ~~~
 
 ## Testing
