@@ -69,12 +69,12 @@ We also construct MGRS-200k, the first multi-granularity image-text dataset for 
 ### Checkpoints
 You can download all our checkpoints from [Huggingface](https://huggingface.co/ZhenShiL/FarSLIP), or selectively download them through the links below.
 
-| Model name  | Architecture | OVSS mIoU (%) | ZSC top-1 accuracy (%) | Download |
-|-------------|--------------|---------------|-------------------------|----------------|
-| FarSLIP-s1  | ViT-B-32     | 29.87         | 58.64                  | [FarSLIP1_ViT-B-32](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP1_ViT-B-32.pt?download=true) |
-| FarSLIP-s2  | ViT-B-32     | 30.49         | 60.12                  | [FarSLIP2_ViT-B-32](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP2_ViT-B-32.pt?download=true) |
-| FarSLIP-s1  | ViT-B-16     | 35.44         | 61.89                  | [FarSLIP1_ViT-B-16](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP1_ViT-B-16.pt?download=true) |
-| FarSLIP-s2  | ViT-B-16     | 35.41         | 62.24                  | [FarSLIP2_ViT-B-16](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP2_ViT-B-16.pt?download=true) |
+| Model name  | ViT-arch. | Test encoder | OVSS mIoU (%)  | ZSC top-1 acc. (%) | Download |
+|-------------|-----------|--------------|----------------|--------------------|----------------|
+| FarSLIP-s1  | ViT-B-32  | Vanilla      | 29.87          | 58.64              | [FarSLIP1_ViT-B-32](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP1_ViT-B-32.pt?download=true) |
+| FarSLIP-s1  | ViT-B-16  | LongCLIP     | 35.44          | 61.89              | [FarSLIP1_ViT-B-16](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP1_ViT-B-16.pt?download=true) |
+| FarSLIP-s2  | ViT-B-32  | Vanilla      | 30.49          | 60.12              | [FarSLIP2_ViT-B-32](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP2_ViT-B-32.pt?download=true) |
+| FarSLIP-s2  | ViT-B-16  | LongCLIP     | 35.41          | 62.24              | [FarSLIP2_ViT-B-16](https://huggingface.co/ZhenShiL/FarSLIP/resolve/main/FarSLIP2_ViT-B-16.pt?download=true) |
 
 
 ### Dataset
