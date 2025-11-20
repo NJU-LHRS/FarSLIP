@@ -110,7 +110,7 @@ if __name__ == "__main__":
     #     if model_name == 'FarSLIP1':
     #         pretrained = "checkpoints/FarSLIP1-ViT-B-32",
     #     elif model_name == 'FarSLIP2':
-    #         pretrained = "checkpoints/FarSLIP1-ViT-B-32",
+    #         pretrained = "checkpoints/FarSLIP2_ViT-B-32",
     #     elif model_name == 'RemoteCLIP':
     #         pretrained = '.../models--chendelong--RemoteCLIP/snapshots/bf1d8a3ccf2ddbf7c875705e46373bfe542bce38/RemoteCLIP-ViT-L-14.pt'  # RemoteCLIP
     #     elif model_name == 'SkyCLIP':
@@ -121,9 +121,9 @@ if __name__ == "__main__":
     #     if model_name == 'LRSCLIP':
     #         pretrained = '.../LRSCLIP_ViT-B-16.pt'
     #     elif model_name == 'FarSLIP1':
-    #         pretrained = "checkpoints/FarSLIP2-ViT-B-16"
+    #         pretrained = "checkpoints/FarSLIP1-ViT-B-16"
     #     elif model_name == 'FarSLIP2':
-    #         pretrained = "checkpoints/FarSLIP2-ViT-B-16"
+    #         pretrained = "checkpoints/FarSLIP2_ViT-B-16",
 
     run_baseline(
         model_arch=model_arch,

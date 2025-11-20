@@ -161,11 +161,20 @@ FarSLIP is trained in two stages.
 + Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download-benchmark-datasets) for scene classification dataset preparation, including 'SkyScript_cls', 'aid', 'eurosat', 'fmow', 'millionaid', 'patternnet', 'rsicb', 'nwpu'.
 + Replace the BENCHMARK_DATASET_ROOT_DIR in [tests/test_scene_classification.py](./tests/test_scene_classification.py) to your own path.
 
-+ Run testing (e.g. FarSLIP-s1 with ViT-B-32):
-```
-python -m tests.test_scene_classification --model-arch ViT-B-32 --model-name FarSLIP1 --force-quick-gelu --pretrained checkpoints/FarSLIP1_ViT-B-32.pt
-```
-
++ Run testing:
+    + FarSLIP-s1
+    ```
+    python -m tests.test_scene_classification --model-arch $VIT --model-name FarSLIP1 --force-quick-gelu --pretrained checkpoints/FarSLIP1_$VIT.pt
+    ```
+    <!-- + FarSLIP-s2 with vanilla CLIP text encoder
+    ```
+    python -m tests.test_scene_classification --model-arch $VIT --model-name FarSLIP2_VC --force-quick-gelu --pretrained checkpoints/FarSLIP2_VC_$VIT.pt
+    ``` -->
+    + FarSLIP-s2 with LongCLIP text encoder (supporting long text) 
+    ```
+    python -m tests.test_scene_classification --model-arch $VIT --model-name FarSLIP2 --force-quick-gelu --pretrained checkpoints/FarSLIP2_$VIT.pt --use-long-clip
+    ```
+    - `$VIT` options: `ViT-B-16`, `ViT-B-32`
 
 <figure>
 <div align="center">
@@ -181,10 +190,21 @@ python -m tests.test_scene_classification --model-arch ViT-B-32 --model-name Far
 + Please refer to [SkyScript](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download-benchmark-datasets) for image-text retrieval dataset preparation, including 'RSICD', 'RSITMD', 'ucmcaptions', and ['SkyScript-retrieval'](https://github.com/wangzhecheng/SkyScript?tab=readme-ov-file#download) ('SkyScript_test_30K_filtered_by_CLIP_openai.csv').
 + Replace the DATA_CSV_PATH_DICT, SKYSCRIPT_IMAGE_DIR, RETRIEVAL_IMAGE_DIR in [tests/test_retrieval.py](./tests/test_retrieval.py) to your own path.
 
-+ Run testing (e.g. FarSLIP-s1 with ViT-B-32):
-```
-python -m tests.test_retrieval --model-arch ViT-B-32 --model-name FarSLIP1 --force-quick-gelu --pretrained checkpoints/FarSLIP1_ViT-B-32.pt
-```
++ Run testing:
+    + FarSLIP-s1
+    ```
+    python -m tests.test_retrieval --model-arch $VIT --model-name FarSLIP1 --force-quick-gelu --pretrained checkpoints/FarSLIP1_$VIT.pt
+    ```
+    <!-- + FarSLIP-s2 with vanilla CLIP text encoder
+    ```
+    python -m tests.test_retrieval --model-arch $VIT --model-name FarSLIP2_VC --force-quick-gelu --pretrained checkpoints/FarSLIP2_VC_$VIT.pt
+    ``` -->
+    + FarSLIP-s2 with LongCLIP text encoder (supporting long text) 
+    ```
+    python -m tests.test_retrieval --model-arch $VIT --model-name FarSLIP2 --force-quick-gelu --pretrained checkpoints/FarSLIP2_$VIT.pt --use-long-clip
+    ```
+    - `$VIT` options: `ViT-B-16`, `ViT-B-32`
+
 
 <div align="center">
 <img src=assets/retrieval.png width="50%">

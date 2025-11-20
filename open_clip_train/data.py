@@ -90,8 +90,8 @@ class JsonDataset(Dataset):
         item = self.data_list[idx]
         ori_global_image = Image.open(os.path.join(self.root_img_dir, item['global_filepath']))
         global_image = self.transforms(ori_global_image)
-        # ori_global_caption = item.get("global_caption") or item.get("detailed_caption")
-        ori_global_caption = item.get("global_caption") or item.get("brief_caption")
+        ori_global_caption = item.get("global_caption") or item.get("detailed_caption")
+        # ori_global_caption = item.get("global_caption") or item.get("brief_caption")
         global_caption = self.tokenize(ori_global_caption)[0]
 
         # ====== Global/local image/text ======
