@@ -195,7 +195,7 @@ def parse_args(args):
     parser.add_argument(
         "--w-d",
         type=float,
-        default=1.0
+        default=0.1
     )
     parser.add_argument(
         "--w-l",

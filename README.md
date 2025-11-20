@@ -7,8 +7,8 @@
     <a href="https://huggingface.co/ZhenShiL/FarSLIP">
         <img alt="Hugging Face Model" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Model-yellow">
     </a>
-    <a href="">
-        <img alt="arXiv" src="https://img.shields.io/badge/arXiv-25xx.xxxxx-b31b1b">
+    <a href="https://arxiv.org/abs/2511.14901">
+        <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2511.14901-b31b1b">
     </a>
 </p>
 
@@ -208,5 +208,10 @@ indicates models trained with in-hold supervision.</em>
 + If you find our work is useful, please give us 🌟 in GitHub and consider cite our paper:
 
     ~~~tex
-
+    @article{li2025farslip,
+    title={FarSLIP: Discovering Effective CLIP Adaptation for Fine-Grained Remote Sensing Understanding},
+    author={Zhenshi Li and Weikang Yu and Dilxat Muhtar and Xueliang Zhang and Pengfeng Xiao and Pedram Ghamisi and Xiao Xiang Zhu},
+    journal={arXiv preprint arXiv:2511.14901},
+    year={2025}
+    }
     ~~~
